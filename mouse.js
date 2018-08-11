@@ -5,30 +5,29 @@ presiono en la ventana html
 */
 var c = document.getElementById('canvas');  //<--traigo el canvas
 var papel = c.getContext("2d");            //<--del canvas selecciono el lienzo
-//coordenadas
+//coordenadas (x,y) del mouse - cambian a medida que se traza un dibujo
 var x;
 var y;
-var i=0;  // <-- i es indicador de si esta arriba o abajo el boton
-//var colorcito ="#000000";
+var i=0;  // <-- i es indicador de si esta arriba o abajo el boton del mouse
 /*****************************************************************************/
 /*****************************************************************************/
 /*ESTA AREA SE MANEJA EL TAMAÑO DEL PLUMON (LOS 3 BOTONES DE HTML, 3 TAMAÑOS)*/
 var plumon=3; //<--plumon predeterminado (el mas pqueño)
-var p = document.getElementById('p');//<---obtiene el boton del html
-p.addEventListener("click",peque);// <--- si presiona el boton va a funcion peque
-var m = document.getElementById('m');
-m.addEventListener("click",medio);
-var g = document.getElementById('g');
-g.addEventListener("click",grande);
+var p = document.getElementById('p');//<---obtiene el boton 1 del html
+p.addEventListener("click",peque);// <--si presiona el boton1 va a funcion peque
+var m = document.getElementById('m');//<---obtiene el boton 2 del html
+m.addEventListener("click",medio);// <--si presiona el boton2 va a funcion medio
+var g = document.getElementById('g');//<---obtiene el boton 3 del html
+g.addEventListener("click",grande);//<--si presiona el boton3 va a funcion grande
 /******AQUI DESARROLLAMOS LAS FUNCIONES Q CAMBIAN EL TAMAÑO DEL PLUMON*********/
 function peque(){
-  plumon = 3;
+  plumon = 3; //<--tamaño del plumon pequeño
 }
 function medio(){
-  plumon = 10;
+  plumon = 10;  //<--tamaño del plumon mediano
 }
 function grande(){
-  plumon = 15;
+  plumon = 15;  //<--tamaño del plumon grande
 }
 //*****************************************************************************
 //*****************************************************************************
@@ -36,7 +35,7 @@ function grande(){
 function cambiarcolor(){//<---funcion la llamo en el html
   var col = document.getElementById("col").value;//<-obtiene col del id colorHtml
   //document.getElementById("espacio").style.color = col; //<--linea de prueba
-  papel.strokeStyle = col;
+  papel.strokeStyle = col;// <-- asigna el color obtenido, al lapiz o plumon
 }
 //**************************************************************************
 //***************************************************************************
