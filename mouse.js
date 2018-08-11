@@ -9,8 +9,37 @@ var papel = c.getContext("2d");            //<--del canvas selecciono el lienzo
 var x;
 var y;
 var i=0;  // <-- i es indicador de si esta arriba o abajo el boton
-var colorcito = "green";
-
+//var colorcito ="#000000";
+/*****************************************************************************/
+/*****************************************************************************/
+/*ESTA AREA SE MANEJA EL TAMAÑO DEL PLUMON (LOS 3 BOTONES DE HTML, 3 TAMAÑOS)*/
+var plumon=3; //<--plumon predeterminado (el mas pqueño)
+var p = document.getElementById('p');//<---obtiene el boton del html
+p.addEventListener("click",peque);// <--- si presiona el boton va a funcion peque
+var m = document.getElementById('m');
+m.addEventListener("click",medio);
+var g = document.getElementById('g');
+g.addEventListener("click",grande);
+/******AQUI DESARROLLAMOS LAS FUNCIONES Q CAMBIAN EL TAMAÑO DEL PLUMON*********/
+function peque(){
+  plumon = 3;
+}
+function medio(){
+  plumon = 10;
+}
+function grande(){
+  plumon = 15;
+}
+//*****************************************************************************
+//*****************************************************************************
+/************AQUI SE CAMBIA EL COLOR DEL PLUMON EN TIEMPO REAL***************/
+function cambiarcolor(){//<---funcion la llamo en el html
+  var col = document.getElementById("col").value;//<-obtiene col del id colorHtml
+  //document.getElementById("espacio").style.color = col; //<--linea de prueba
+  papel.strokeStyle = col;
+}
+//**************************************************************************
+//***************************************************************************
 
 //*****************inicializamoseventos***************
 document.addEventListener("mousemove",mouse_dibuja);  /*<-movimiento (mouse)  */
@@ -18,10 +47,10 @@ document.addEventListener("mousedown",mouseD);       /*<-boton pulsado(mouse)*/
 document.addEventListener("mouseup",mouseU);        /*<-boton arriba(mouse)*/
 //*****************************************************
 
-function dibujarLinea(color,xi,yi,xf,yf,lienzo){//<--funcion dibujar linea
+function dibujarLinea(color,xi,yi,xf,yf,lienzo,plumon){//<--funcion dibujar linea
   lienzo.beginPath();                           //<-pone el lapiz en el papel
   lienzo.strokeStyle = color;                   //<-color de trazo
-  lienzo.lineWidth = 5;                         //<-tamaño del plumon
+  lienzo.lineWidth = plumon;                         //<-tamaño del plumon
   lienzo.moveTo(xi, yi);                        //<-posicion inicial, mover a
   lienzo.lineTo(xf, yf);                        //<-posicion final del trazo
   lienzo.stroke();                              //<-dibuja el trazo
@@ -31,7 +60,7 @@ function dibujarLinea(color,xi,yi,xf,yf,lienzo){//<--funcion dibujar linea
 function mouse_dibuja(e){//<---------------------------funcion q llama a dibujar
   //console.log(e);
   if(i == 1){/*<---si el boton izquierdo del mouse esta presionado, llama funcion*/
-    dibujarLinea(colorcito,x,y,e.layerX,e.layerY,papel);//<-dibujar linea
+    dibujarLinea(col,x,y,e.layerX,e.layerY,papel,plumon);//<-dibujar linea
   }/*los parametros son, color, posicion x,y inicial, y posicion final evento recorrido*/
   x = e.layerX; //<-- se actualiza x, y a la posicion final para que el trazo
   y = e.layerY;// quede justo donde quedo la posicion final del mouse.
