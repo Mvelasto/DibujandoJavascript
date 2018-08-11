@@ -34,12 +34,13 @@ function grande(){
 /************AQUI SE CAMBIA EL COLOR DEL PLUMON EN TIEMPO REAL***************/
 function cambiarcolor(){//<---funcion la llamo en el html
   var col = document.getElementById("col").value;//<-obtiene col del id colorHtml
-  //document.getElementById("espacio").style.color = col; //<--linea de prueba
+  //document.getElementById("espacio").style.color = col; //<--prueba p en html
   papel.strokeStyle = col;// <-- asigna el color obtenido, al lapiz o plumon
 }
 //**************************************************************************
 //***************************************************************************
 
+/****************************************************************************/
 //*****************inicializamoseventos***************
 document.addEventListener("mousemove",mouse_dibuja);  /*<-movimiento (mouse)  */
 document.addEventListener("mousedown",mouseD);       /*<-boton pulsado(mouse)*/
@@ -81,3 +82,6 @@ dibujarLinea("black",0,0,0,500,papel);//<--linea vertical izquierda
 dibujarLinea("black",500,0,500,500,papel);//<--linea vertical derecha
 dibujarLinea("black",0,0,500,0,papel);//<--linea horizontal arriba
 dibujarLinea("black",0,500,500,500,papel);//<--linea horizontal abajo
+
+/*…solamente que te esfuerces y seas valiente. Josue1:18*/
+/*******************************************************************************/

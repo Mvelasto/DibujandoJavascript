@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta name="author" content="Milbelis V.">
+    <meta name="description" content="Lienzo de dibujo libre a mano alzada">
+    <link rel="icon" href="ico.png">
     <meta charset="utf-8">
-    <title>Dibujando con un mouse</title>
+    <title>Dibuja con el Mouse</title>
+    <style media="screen">
+      body{
+        background-color:#008080;
+      }
+      canvas{
+        background-color: #ffffff;
+      }
+      p{
+        font-family: "Montserrat";
+        color: #ffffff;
+      }
+      h1{
+        font-family: "Incised901 Ct BT";
+        color: #ffffff;
+      }
+    </style>
   </head>
   <body align="center">
-    <h2>Color de linea</h2>
-    <p><!---tamaño del plumon--->
+    <br>
+    <h1>Dibuja con el Mouse</h1>
+    <p>Tamaño del plumon
       <input type="button" id="p" value="1">
       <input type="button" id="m" value="2">
       <input type="button" id="g" value="3">
+      - Color
       <input type="color" id="col" value="#000000" onchange="cambiarcolor()">
-      <!---<p id="espacio">ppp</p>--->
+      <!---<p id="espacio">ppp</p> con este hice las pruebas para el color--->
     </p>
     <canvas  id="canvas" width="500" height="500"></canvas>
-    <p>Dibujando con el mouse.</p>
     <script src="mouse.js"></script>
   </body>
 </html>
